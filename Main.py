@@ -14,7 +14,7 @@ import re
 from webbrowser import open_new_tab as ont
 
 intro = choice(IntroOptions)
-intro_emoji = ["wink", "v", "smile"]
+intro_emoji = ["wink", "smile"]
 _emoji = SEmoji.Emoji(choice(intro_emoji)) #making a random emoji
 print("{} {}".format(intro, _emoji)) #introducing to user
 tokenizer = WordPunctTokenizer()
@@ -23,7 +23,6 @@ tokenizer = WordPunctTokenizer()
 try :
     while True:
         inp = input(Prompt)
-        tokenizedinp = tokenizer.tokenize(inp)
         if inp is "" : # if the entered value was empty i'll pass
             pass #passing
         #---
@@ -37,6 +36,10 @@ try :
                     if lang in Dest :
                         Dest = langs[lang]
             print(STranslator.Translate(Content, Dest))
+        #---
+        elif (inp == MainName) or (inp == "sarah") :
+            a = ["Yes, I'm here to help you", "Yes, Sir", "I'm right here"]
+            print("{} {}".format(choice(a), _emoji))
         #---
         else :
             try:
