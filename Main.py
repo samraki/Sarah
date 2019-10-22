@@ -22,7 +22,7 @@ tokenizer = WordPunctTokenizer()
 
 try :
     while True:
-        inp = input("~> ")
+        inp = input(Prompt)
         tokenizedinp = tokenizer.tokenize(inp)
         if inp is "" : # if the entered value was empty i'll pass
             pass #passing
@@ -38,8 +38,6 @@ try :
                         Dest = langs[lang]
             print(STranslator.Translate(Content, Dest))
         #---
-        elif ("about" in inp or "About" in inp or "ABOUT" in inp) :
-            pass
         else :
             try:
                 print(SWikipedia.Compliter(SWikipedia.Wikipedia(inp)))
