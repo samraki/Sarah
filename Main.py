@@ -9,7 +9,6 @@ from Modules import STranslator, SWebscraper, SEmoji, SWikipedia
 from Data import IntroOptions, langs, YES
 from random import choice
 from Setting import *
-from nltk.tokenize import WordPunctTokenizer
 import re 
 from webbrowser import open_new_tab as ont
 
