@@ -65,7 +65,10 @@ class SWikipedia:
 
     def GetURL(Subject):
         return wikipedia.page(Subject).url
-        
+class SShorter():
+    def Short(url):
+        return(url)
+
 class SEmoji():
     def Emoji(emoname):
         if emoname == "fuck":
