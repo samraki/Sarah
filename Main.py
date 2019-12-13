@@ -5,25 +5,24 @@ This is the Main file of Sarah
 """ 
 
 #importings :
-from Modules import STranslator, SWebscraper, SEmoji, SWikipedia
+import re 
+from Modules import STranslator, SWebscraper, SEmoji, SWikipedia, Stts
 from Data import IntroOptions, langs, YES
 from random import choice
 from Setting import *
-from nltk.tokenize import WordPunctTokenizer
-import re 
 from webbrowser import open_new_tab as ont
 
+
 intro = choice(IntroOptions)
+Stts.say(intro)
 intro_emoji = ["wink", "v", "smile"]
 _emoji = SEmoji.Emoji(choice(intro_emoji)) #making a random emoji
-print("{} {}".format(intro, _emoji)) #introducing to user
-tokenizer = WordPunctTokenizer()
-
+intro = ("{} {}".format(intro, _emoji))
+Stts.type(intro) #introducing to user
 
 try :
     while True:
         inp = input("~> ")
-        tokenizedinp = tokenizer.tokenize(inp)
         if inp is "" : # if the entered value was empty i'll pass
             pass #passing
         #---

@@ -5,14 +5,16 @@ This is the Modeles for the the main file of Sarah
 """ 
 
 #importings :
+import sys, os, time, requests, wikipedia
+###
 from googletrans import Translator
 from Data import *
+from Setting import *
 from webbrowser import open_new_tab as ont
 from bs4 import BeautifulSoup as bs
 from emoji import emojize
-import requests 
-import wikipedia
-
+from gtts import gTTS
+from playsound import playsound
 
 class STranslator():
     def Translate(Content, Dest) :
@@ -65,7 +67,30 @@ class SWikipedia:
 
     def GetURL(Subject):
         return wikipedia.page(Subject).url
-        
+
+
+class Stts():
+    def say(txt):
+        if SpeakingAbbility == "on" :
+            tts = gTTS(text=txt, lang='en')
+            tts.save("good.mp3")
+            playsound('good.mp3')
+        elif SpeakingAbbility == "off" :
+            pass
+        else : 
+            pass
+
+    def type(txt): #I don't know how this works, if you know please edit this comment
+        if TypingAbbility == "on" :
+            for Char in txt + '\n':
+                sys.stdout.write(Char)
+                sys.stdout.flush()
+                time.sleep(0.09)
+        elif TypingAbbility == "off" :
+            pass
+        else : 
+            pass
+
 class SEmoji():
     def Emoji(emoname):
         if emoname == "fuck":
@@ -100,3 +125,4 @@ class SEmoji():
             return emojize(":high_voltage:") #⚡
         elif emoname == "v":
             return emojize(":victory_hand:") #✌️
+
