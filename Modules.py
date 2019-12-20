@@ -22,10 +22,8 @@ class STranslator():
         try :
             translations = translator.translate([Content], src="auto", dest=Dest)
             for translation in translations :
-                if Dest == "fa" or Dest == "ar" :           
-                    return (translation.origin + " -> " + translation.text[::-1])                                                                                   
-            else :
-                return (translation.origin + " -> " + translation.text)
+                return [0, translation.origin, translation.text]
+                #("{}, will be, {}").format(translation.origin, translation.text)
         except(ValueError) :
             return ("Ooops, Couldn't recognize that language")
         except :
@@ -72,24 +70,33 @@ class SWikipedia:
 class Stts():
     def say(txt):
         if SpeakingAbbility == "on" :
-            tts = gTTS(text=txt, lang='en')
-            tts.save("good.mp3")
-            playsound('good.mp3')
+            try :
+                tts = gTTS(text=txt, lang='en')
+                tts.save("good.mp3")
+                playsound('good.mp3')
+            except :
+                print("Ooops connection failed \nWhen you're offline, You can't hear my voice")
         elif SpeakingAbbility == "off" :
             pass
         else : 
             pass
 
-    def type(txt): #I don't know how this works, if you know please edit this comment
-        if TypingAbbility == "on" :
-            for Char in txt + '\n':
+    def write(txt): #Slow Typing function
+        if WritingAbbility == "on" :
+            """for Char in txt + '\n':
                 sys.stdout.write(Char)
                 sys.stdout.flush()
-                time.sleep(0.09)
-        elif TypingAbbility == "off" :
+                time.sleep(0.09)"""
+            print(txt)
+        elif WritingAbbility == "off" :
             pass
         else : 
             pass
+
+
+def sayandwrite(txt):
+    Stts.say(txt)
+    Stts.write(txt)
 
 class SEmoji():
     def Emoji(emoname):
