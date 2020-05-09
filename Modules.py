@@ -69,6 +69,7 @@ class SWikipedia:
 
     def GetURL(Subject):
         return wikipedia.page(Subject).url
+<<<<<<< HEAD
 
 
 class Stts():

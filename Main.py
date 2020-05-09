@@ -15,7 +15,7 @@ from webbrowser import open_new_tab as ont
 
 
 intro = choice(IntroOptions)
-intro_emoji = ["wink", "v", "smile"]
+intro_emoji = ["wink", "smile"]
 _emoji = SEmoji.Emoji(choice(intro_emoji)) #making a random emoji
 intro2 = ("{} {}".format(intro, _emoji))
 #Stts.say(intro), Stts.write(intro2)
@@ -24,7 +24,7 @@ Stts.write(intro2)
 
 try :
     while True:
-        inp = input("~> ")
+        inp = input(Prompt)
         if inp is "" : # if the entered value was empty i'll pass
             pass #passing
         #---
@@ -45,8 +45,10 @@ try :
             Stts.write("{} ~> {} ({})".format(translist[1], translist[2], Desti))
 
         #---
-        elif ("about" in inp or "About" in inp or "ABOUT" in inp) :
-            pass
+        elif (inp == MainName) or (inp == "sarah") :
+            a = ["Yes, I'm here to help you", "Yes, Sir", "I'm right here"]
+            print("{} {}".format(choice(a), _emoji))
+        #---
         else :
             try:
                 print(SWikipedia.Compliter(SWikipedia.Wikipedia(inp)))
