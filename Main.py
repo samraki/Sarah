@@ -4,12 +4,13 @@ This is the Main file of Sarah
 #TODO: This Doctype needs changes
 """ 
 
-#importings :
+#Packages and Libraries :
 import re 
 from Modules import STranslator, SWebscraper, SEmoji, SWikipedia, Stts, sayandwrite
 from Data import IntroOptions, langs, YES
-from random import choice
 from Setting import *
+#---
+from random import choice
 from webbrowser import open_new_tab as ont
 
 

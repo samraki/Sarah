@@ -4,8 +4,12 @@ This is the Modeles for the the main file of Sarah
 #TODO: This Doctype needs changes
 """ 
 
-#importings :
-import sys, os, time, requests, wikipedia
+#Packages and Libraries :
+import sys, 
+import os
+import time
+import requests
+import wikipedia
 ###
 from googletrans import Translator
 from Data import *
@@ -97,6 +101,10 @@ class Stts():
 def sayandwrite(txt):
     Stts.say(txt)
     Stts.write(txt)
+
+class SShorter(): #TODO coplete this class
+    def Short(url):
+        return(url)
 
 class SEmoji():
     def Emoji(emoname):
